@@ -19,13 +19,13 @@ app.get("/greeting/:name", (req, res) => {
 app.get("/tip/:total/:tipPercentage", (req, res) => {
   const tips = (req.params.tipPercentage / 100) * req.params.total;
   res.send(
-    `<h3>your tip should be <strong> ${tips} </strong> </h3> </br> <a href="/">Home Page</a>`
+    `<h3>Total: ${req.params.total} and tip persent : ${req.params.tipPercentage}% your tip should be <strong> $${tips} </strong> </h3> </br> <a href="/">Home Page</a>`
   );
 });
 
 app.get("/magic/:question", (req, res) => {
   const randomAnswer = Math.floor(Math.random() * magic.length);
-  const questionRes = `<h3>${req.params.question}</h3> </br> <h5>${magic[randomAnswer]}</h5> </br> <a href="/">Home Page</a>`;
+  const questionRes = `<h1>${req.params.question}</h1> </br> <h3>${magic[randomAnswer]}</h3> </br> <a href="/">Home Page</a>`;
   res.send(questionRes);
 });
 

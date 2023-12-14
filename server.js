@@ -15,6 +15,11 @@ app.get("/greeting/:name", (req, res) => {
   res.send(greatingWithName);
 });
 
+app.get("/tip/:total/:tipPercentage", (req, res) => {
+  const tips = (req.params.tipPercentage / 100) * req.params.total;
+  res.send(`<h3>your tip should be <strong> ${tips} </strong> </h3>`);
+});
+
 app.listen("3002", (req, res) => {
   console.log("app is running on port 3002");
 });

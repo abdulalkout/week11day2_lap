@@ -3,7 +3,7 @@ const app = express();
 const magic = require("./models/magic");
 
 app.get("/", (req, res) => {
-  const homeRes = `<h1> this is the home page </h1> </br> <a href="/greeting">go to greating</a> </br> <a href="/tip/100/20">Tip Cal</a> </br> <a href="/magic/am I gonna be a millionar">Magic Answer</a>`;
+  const homeRes = `<h1> this is the home page </h1> </br> <a href="/greeting">go to greating</a>  </br> <a href="/greeting/abdul">greating Abdul</a> </br> <a href="/tip/100/20">Tip Cal</a> </br> <a href="/magic/am I gonna be a millionar">Magic Answer</a>`;
   res.send(homeRes);
 });
 

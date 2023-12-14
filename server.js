@@ -3,7 +3,7 @@ const app = express();
 const magic = require("./models/magic");
 
 app.get("/", (req, res) => {
-  const homeRes = `<h1> this is the home page </h1> </br> <a href="/greeting">go to greating</a>`;
+  const homeRes = `<h1> this is the home page </h1> </br> <a href="/greeting">go to greating</a> </br> <a href="/tip/100/20">Tip Cal</a> </br> <a href="/magic/am I gonna be a millionar">Magic Answer</a>`;
   res.send(homeRes);
 });
 
@@ -18,12 +18,14 @@ app.get("/greeting/:name", (req, res) => {
 
 app.get("/tip/:total/:tipPercentage", (req, res) => {
   const tips = (req.params.tipPercentage / 100) * req.params.total;
-  res.send(`<h3>your tip should be <strong> ${tips} </strong> </h3>`);
+  res.send(
+    `<h3>your tip should be <strong> ${tips} </strong> </h3> </br> <a href="/">Home Page</a>`
+  );
 });
 
 app.get("/magic/:question", (req, res) => {
   const randomAnswer = Math.floor(Math.random() * magic.length);
-  const questionRes = `<h3>${req.params.question}</h3> </br> <h5>${magic[randomAnswer]}</h5>`;
+  const questionRes = `<h3>${req.params.question}</h3> </br> <h5>${magic[randomAnswer]}</h5> </br> <a href="/">Home Page</a>`;
   res.send(questionRes);
 });
 
